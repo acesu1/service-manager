@@ -4,6 +4,13 @@ import { NavLink } from './nav-link'
 import { ThemeToggle } from './theme-toggle'
 import { Separator } from './ui/separator'
 
+import {
+  SignedOut,
+  SignInButton,
+  SignedIn,
+  UserButton,
+} from '@clerk/clerk-react'
+
 export function Header() {
   return (
     <div className="border-b">
@@ -22,6 +29,12 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center space-x-2">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           <ThemeToggle />
         </div>
       </div>
