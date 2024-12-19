@@ -19,14 +19,18 @@ export function App() {
     )
   }
 
+  const isAdmin = user.publicMetadata.role === 'admin'
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/services" element={<Services />} />
-          </Route>
+          {isAdmin && (
+            <Route path="/" element={<RootLayout />}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/services" element={<Services />} />
+            </Route>
+          )}
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
