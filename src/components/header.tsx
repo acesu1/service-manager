@@ -4,6 +4,9 @@ import { NavLink } from './nav-link'
 import { ThemeToggle } from './theme-toggle'
 import { Separator } from './ui/separator'
 
+import { SignInButton, UserButton } from '@clerk/clerk-react'
+import { Authenticated, Unauthenticated } from 'convex/react'
+
 export function Header() {
   return (
     <div className="border-b">
@@ -23,6 +26,12 @@ export function Header() {
 
         <div className="ml-auto flex items-center space-x-2">
           <ThemeToggle />
+          <Unauthenticated>
+            <SignInButton />
+          </Unauthenticated>
+          <Authenticated>
+            <UserButton />
+          </Authenticated>
         </div>
       </div>
     </div>
